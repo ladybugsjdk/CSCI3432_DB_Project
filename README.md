@@ -2,8 +2,6 @@
 
 Team Leader and Customer Advocate: Jenna Lovett
 
-DB Application Developer: Kirk Alexander and Troy Purvis
-
-DBA, Server and Configuration Management: Dallas Martin
+DB Application Developer: Troy Purvis
 
 QA/Test, Security, and Tech Support: Tyler Hodzen
