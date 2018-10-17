@@ -125,5 +125,14 @@ namespace ResidentsForm
         {
 
         }
+
+        //this method closes the residents form and reopens a new instance of the
+        //admin welcome portal
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            WindowsFormsApp1.Welcome w = new WindowsFormsApp1.Welcome();
+            this.Close();
+            w.Show();
+        }
     }
 }
