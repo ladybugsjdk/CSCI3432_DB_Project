@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
         private void residents_Click(object sender, EventArgs e)
         {
             ResidentsForm.Residents r = new ResidentsForm.Residents();
-            this.Hide();
+            //this.Hide();
             r.Show();
         }
     }

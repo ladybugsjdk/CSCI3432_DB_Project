@@ -9,3 +9,4 @@ C:\Users\Jenna\Desktop\Prototype\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Apa
 C:\Users\Jenna\Desktop\Prototype\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Jenna\Desktop\Prototype\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\Jenna\Desktop\Prototype\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\ResidentsForm.Residents.resources
+C:\Users\Jenna\Desktop\Prototype\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.LookUp.resources

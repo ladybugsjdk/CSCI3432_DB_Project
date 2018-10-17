@@ -49,6 +49,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormClasses\formClass.cs" />
+    <Compile Include="LookUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LookUp.Designer.cs">
+      <DependentUpon>LookUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PinkDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PinkDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Residents.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="LookUp.resx">
+      <DependentUpon>LookUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Residents.resx">
       <DependentUpon>Residents.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +92,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="PinkDataSet.xsc">
+      <DependentUpon>PinkDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PinkDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PinkDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PinkDataSet.xss">
+      <DependentUpon>PinkDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
