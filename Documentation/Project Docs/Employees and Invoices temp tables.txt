@@ -1,0 +1,40 @@
+/********************************************************
+* This script creates the database named my_guitar_shop 
+*********************************************************/
+USE master;
+GO
+
+IF  DB_ID('MyGuitarShop') IS NOT NULL
+    DROP DATABASE MyGuitarShop;
+GO
+
+CREATE DATABASE MyGuitarShop;
+GO
+
+USE MyGuitarShop;
+
+-- create the tables for the database
+
+CREATE TABLE Invoices (
+  InvoiceID         INT            PRIMARY KEY  IDENTITY,
+  ResidentID        INT            REFERENCES Residents (ResidentID),
+  InvoiceDate       DATETIME       NOT NULL,
+  PaymentDate		DATETIME	   NOT NULL,
+  RentAmount        MONEY          NOT NULL,
+  CreditAmount      MONEY          NOT NULL,
+  DueDate           DATETIME       DEFAULT NULL,
+  CardType          VARCHAR(50)    NOT NULL,
+  CardNumber        CHAR(16)       NOT NULL,
+  CardExpires       CHAR(7)        NOT NULL,
+  BillingAddressID  INT            NOT NULL    
+);
+
+CREATE TABLE Employees (
+  EmployeeID           INT         PRIMARY KEY   IDENTITY,
+  EmailAddress      VARCHAR(255)   NOT NULL,
+  JobTitle			CHAR(20)	   NOT NULL,
+  FirstName         VARCHAR(255)   NOT NULL,
+  LastName          VARCHAR(255)   NOT NULL,
+  HireDate			DATE		   NOT NULL,
+  Salary			DECIMAL(9,2)   NOT NULL
+);
