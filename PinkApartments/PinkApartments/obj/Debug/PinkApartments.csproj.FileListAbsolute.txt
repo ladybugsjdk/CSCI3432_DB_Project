@@ -1,0 +1,12 @@
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.csprojAssemblyReference.cache
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.SearchForm.resources
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.WelcomeForm.resources
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.Properties.Resources.resources
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.csproj.GenerateResource.cache
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.csproj.CoreCompileInputs.cache
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\bin\Debug\PinkApartments.exe.config
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\bin\Debug\PinkApartments.exe
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\bin\Debug\PinkApartments.pdb
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.exe
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.pdb
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.PinkClasses.CreateContract.resources
