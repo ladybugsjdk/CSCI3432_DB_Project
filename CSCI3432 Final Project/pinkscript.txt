@@ -1,0 +1,504 @@
+USE master;
+GO
+
+IF  DB_ID('Pink') IS NOT NULL
+    DROP DATABASE Pink;
+GO
+
+CREATE DATABASE Pink;
+GO
+
+USE Pink;
+
+-- create the tables for the database
+
+CREATE TABLE Employees (
+  EmployeeID           INT         PRIMARY KEY   IDENTITY,
+  EmailAddress      VARCHAR(255)   NOT NULL,
+  JobTitle			CHAR(20)	   NOT NULL,
+  FirstName         VARCHAR(255)   NOT NULL,
+  LastName          VARCHAR(255)   NOT NULL,
+  HireDate			DATETIME		   NOT NULL,
+  Salary			DECIMAL(9,2)   NOT NULL
+);
+
+CREATE TABLE Residents(
+  ResidentID           INT            PRIMARY KEY   IDENTITY,
+  EmployeeID		INT					FOREIGN KEY REFERENCES Employees(EmployeeID) DEFAULT NULL,
+  EmailAddress         VARCHAR(255)   NOT NULL,
+  FirstName            VARCHAR(60)    NOT NULL,
+  LastName             VARCHAR(60)    NOT NULL,
+  PhoneNumber			VARCHAR(20)		NOT NULL
+);
+
+CREATE TABLE Payments (
+  PaymentID         INT            IDENTITY,
+  ResidentID        INT				NOT NULL,
+  PaymentDate		DATETIME	   NOT NULL,
+  RentAmount        MONEY          NOT NULL,
+  CreditAmount      MONEY          NOT NULL,
+  DueDate           DATETIME       DEFAULT NULL,
+  CardType          VARCHAR(50)    NOT NULL,
+  CardNumber        CHAR(24)       NOT NULL, 
+  constraint PK_Payments primary key (PaymentID, ResidentID),
+  constraint FK_Payments foreign key (ResidentID) references Residents(ResidentID)
+);
+
+
+
+CREATE TABLE Pets (
+	ResidentID	int NOT NULL,
+	Species	varchar(60),
+	Breed		varchar(60),
+	RegistrationDate DateTime,
+	PaymentDate DateTime,
+	constraint PK_PETS primary key (ResidentID),
+	constraint FK_PETS_ResidentID	foreign key (ResidentID) references Residents(ResidentID)
+);
+
+CREATE TABLE ResidentVehicles (
+	LicensePlate varchar(60) NOT NULL UNIQUE,
+	ResidentID	int NOT NULL,
+	Make		varchar(20),
+	Model		varchar(20),
+	Color		varchar(20),
+	RegistrationDate	DateTime,
+	DecalSticker		varchar(20),
+	constraint PK_RESIDENT_VEHICLES primary key (LicensePlate),
+	constraint FK_RESIDENT_VEHICLES foreign key (ResidentID) REFERENCES Residents(ResidentID)
+);
+
+CREATE TABLE EventsLog (
+EventID		INT		Not Null IDENTITY,
+EmployeeID	INT		Foreign key References Employees (EmployeeID) Not Null,
+ResidentID	INT		Foreign Key References Residents (ResidentID) Not Null,
+EDate		DateTime	Not Null,
+ELocation	VARCHAR(50)	Not Null,
+EDesc	VARCHAR(50) Not Null
+constraint PK_Events primary key (EventID)
+);
+
+CREATE TABLE Apartments (
+ApartmentNum	INT		NOT NULL PRIMARY KEY IDENTITY,
+NumBeds			INT		NOT NULL,
+NumBaths		INT		NOT NULL,
+Sqft			INT		NOT NULL
+);
+
+CREATE TABLE Contracts (
+ContractID		INT		NOT NULL IDENTITY,
+ResidentID		INT		FOREIGN KEY REFERENCES Residents(ResidentID) NOT NULL,
+ApartmentNum	INT		FOREIGN KEY REFERENCES Apartments(ApartmentNum)	NOT NULL,
+Price			MONEY		NOT NULL,
+StartDate		DATE	NOT NULL,
+EndDate			DATE	NOT NULL,
+PetsAllowed		BIT		NOT NULL,
+SmokingAllowed	BIT		NOT NULL,
+Specials		VARCHAR(60)	DEFAULT NULL,
+constraint PK_Contracts primary key (ContractID, ResidentID, ApartmentNum)
+);
+
+
+
+-- Insert data into the tables
+
+SET IDENTITY_INSERT Apartments ON;
+INSERT INTO Apartments(ApartmentNum, NumBeds, NumBaths, Sqft) VALUES
+(100, 4, 4, 1000),
+(101, 4, 4, 1000),
+(102, 4, 4, 1000),
+(103, 4, 4, 1000),
+(104, 4, 4, 1000),
+(105, 4, 4, 1000),
+(106, 4, 4, 1000),
+(107, 4, 4, 1000),
+(108, 4, 4, 1000),
+(109, 4, 4, 1000),
+(110, 4, 4, 1000),
+(111, 3, 4, 1000),
+(112, 3, 4, 1000),
+(113, 3, 4, 1000),
+(114, 3, 4, 1000),
+(115, 3, 4, 1000),
+(116, 2, 4, 1000),
+(117, 2, 4, 1000),
+(118, 2, 4, 1000),
+(119, 2, 4, 1000),
+(120, 2, 4, 1000),
+(121, 2, 4, 1000),
+(122, 2, 4, 1000),
+(123, 3, 4, 1000),
+(124, 3, 4, 1000),
+(125, 3, 4, 1000),
+(126, 3, 4, 1000),
+(127, 3, 4, 1000),
+(128, 3, 4, 1000),
+(129, 4, 4, 1000),
+(130, 4, 4, 1200),
+(131, 3, 4, 1200),
+(132, 2, 4, 1300),
+(133, 2, 4, 1300),
+(134, 2, 4, 1300),
+(135, 2, 4, 1300),
+(136, 2, 4, 1300),
+(137, 2, 4, 1300),
+(138, 2, 4, 1300),
+(139, 3, 4, 1300),
+(140, 3, 4, 1400),
+(141, 3, 4, 1400),
+(142, 3, 4, 1400),
+(143, 3, 4, 1400),
+(144, 3, 4, 1000),
+(145, 4, 4, 1000),
+(146, 4, 4, 1000),
+(147, 3, 4, 1000),
+(148, 3, 4, 1000),
+(149, 4, 4, 1000),
+(150, 4, 4, 1000),
+(151, 4, 4, 1000),
+(152, 4, 4, 1000),
+(153, 4, 4, 1000),
+(154, 4, 4, 1000),
+(155, 4, 4, 1000),
+(156, 4, 4, 1000),
+(157, 4, 4, 1000),
+(158, 4, 4, 1000),
+(159, 4, 4, 1000),
+(160, 4, 4, 1000),
+(161, 3, 4, 1000),
+(162, 3, 4, 1000),
+(163, 3, 4, 1000),
+(164, 3, 4, 1000),
+(165, 3, 4, 1000),
+(166, 2, 4, 1000),
+(167, 2, 4, 1000),
+(168, 2, 4, 1000),
+(169, 2, 4, 1000),
+(170, 2, 4, 1000),
+(171, 2, 4, 1000),
+(172, 2, 4, 1000),
+(173, 3, 4, 1000),
+(174, 3, 4, 1000),
+(175, 3, 4, 1000),
+(176, 3, 4, 1000),
+(177, 3, 4, 1000),
+(178, 3, 4, 1000),
+(179, 4, 4, 1000),
+(180, 4, 4, 1200),
+(181, 3, 4, 1200),
+(182, 2, 4, 1300),
+(183, 2, 4, 1300),
+(184, 2, 4, 1300),
+(185, 2, 4, 1300),
+(186, 2, 4, 1300),
+(187, 2, 4, 1300),
+(188, 2, 4, 1300),
+(189, 3, 4, 1300),
+(190, 3, 4, 1400),
+(191, 3, 4, 1400),
+(192, 3, 4, 1400),
+(193, 3, 4, 1400),
+(194, 3, 4, 1000),
+(195, 4, 4, 1000),
+(196, 4, 4, 1000),
+(197, 3, 4, 1000),
+(198, 3, 4, 1000),
+(199, 4, 4, 1000),
+(200, 4, 4, 1000);
+SET IDENTITY_INSERT Apartments OFF;
+
+SET IDENTITY_INSERT Employees ON;
+
+INSERT INTO Employees(EmployeeID, EmailAddress, JobTitle, FirstName, LastName, HireDate, Salary) VALUES
+(1, 'joe@pinkapartments.com', 'Groundsman', 'Joe', 'Davis', '2016-05-07 03:53:06.000', '50000.00'),
+(2, 'mark@pinkapartments.com', 'Groundsman', 'Mark', 'Davis', '2016-05-07 03:53:06.000', '25000.00'),
+(3, 'jerry@pinkapartments.com', 'Leaser', 'Jerry', 'Davis', '2016-12-07 03:53:06.000', '30000.00'),
+(4, 'julie@pinkapartments.com', 'Leaser', 'Julie', 'Davis', '2016-05-07 03:53:06.000', '30000.00'),
+(5, 'amy@pinkapartments', 'Leaser', 'Amy', 'Davis', '2016-05-07 03:53:06.000', '30000.00'),
+(6, 'veronica@pinkapartments.com', 'Property Manager', 'Veronica', 'Davis', '2016-05-07 03:53:06.000', '30000.00'),
+(7, 'david@pinkapartments.com', 'Security', 'David', 'Davis', '2016-05-07 03:53:06.000', '30000.00'),
+(8, 'mary@pinkapartments.com', 'Security', 'Mary', 'Davis', '2018-05-07 03:53:06.000', '30000.00'),
+(9, 'andy@pinkapartments.com', 'Electrician', 'Andy', 'Davis', '2016-05-07 03:53:06.000', '35000.00'),
+(10, 'mali@pinkapartments.com', 'Groundsman', 'Mali', 'Carson', '2018-05-07 03:53:06.000', '45000.00'),
+(11, 'madalyn@pinkapartments.com', 'Electrician', 'Madalyn', 'Dudley', '2016-05-07 03:53:06.000', '60000.00'),
+(12, 'rex@pinkapartments.com', 'Leaser', 'Rex', 'Mayo', '2016-05-07 03:53:06.000', '30000.00'),
+(13, 'darion@pinkapartments.com', 'Administrator', 'Darion', 'Powel', '2016-05-07 03:53:06.000', '30000.00'),
+(14, 'ellen@pinkapartments.com', 'Administrator', 'Ellen', 'Garrison', '2018-05-07 03:53:06.000', '90000.00'),
+(15, 'daya@pinkapartments.com', 'IT Technician', 'Daya', 'Roads', '2016-05-07 03:53:06.000', '90000.00'),
+(16, 'brent@pinkapartments.com', 'Groundsman', 'Brent', 'Fenton', '2016-10-07 03:53:06.000', '30000.00'),
+(17, 'rhode@pinkapartments.com', 'Groundsman', 'Rhode', 'Davis', '2017-05-07 03:53:06.000', '30000.00'),
+(18, 'lucero@pinkapartments.com', 'Security', 'Lucero', 'Davis', '2016-05-07 03:53:06.000', '30000.00'),
+(19, 'joanna@pinkapartments.com', 'Groundsman', 'Joanna', 'Jackson', '2018-10-07 03:53:06.000', '40000.00'),
+(20, 'alice@pinkapartments.com', 'Leaser', 'Alice', 'Tapley', '2016-05-07 03:53:06.000', '40000.00'),
+(21, 'clinton.gabm@pinkapartments.com', 'Electrician', 'Clinton', 'Gamble', '2016-05-07 03:53:06.000', '60000.00'),
+(22, 'paris.kerr@pinkapartments.com', 'Leaser', 'Paris', 'Kerr', '2017-05-07 03:53:06.000', '30000.00'),
+(23, 'ross.owens@pinkapartments.com', 'Administrator', 'Ross', 'Owens', '2016-05-07 03:53:06.000', '30000.00'),
+(24, 'jasper.cooper@pinkapartments.com', 'Administrator', 'Jasper', 'Cooper', '2017-05-07 03:53:06.000', '90000.00'),
+(25, 'declan.andrews@pinkapartments.com', 'IT Technician', 'Declan', 'Andrews', '2016-05-07 03:53:06.000', '90000.00'),
+(26, 'callum@pinkapartments.com', 'Groundsman', 'Callum', 'Stanton', '2017-05-07 03:53:06.000', '30000.00'),
+(27, 'Amir@pinkapartments.com', 'Groundsman', 'Amir', 'Lowery', '2016-05-07 03:53:06.000', '30000.00'),
+(28, 'carolynd@pinkapartments.com', 'Security', 'Carolyn', 'Downs', '2017-05-07 03:53:06.000', '30000.00'),
+(29, 'erinval@pinkapartments.com', 'Groundsman', 'Erin', 'Valenzerula', '2016-05-07 03:53:06.000', '40000.00'),
+(30, 'alice@pinkapartments.com', 'Leaser', 'Alice', 'Tapley', '2016-05-07 03:53:06.000', '40000.00');
+
+
+SET IDENTITY_INSERT Employees OFF;
+
+SET IDENTITY_INSERT Residents ON;
+
+INSERT INTO Residents(ResidentID, EmployeeID, EmailAddress, FirstName, LastName, PhoneNumber) VALUES
+(1, 1, 'joe@pinkapartments.com', 'Joe', 'Davis', '555-555-5551'),
+(2, NULL, 'barryz@gmail.com', 'Barry', 'Zimmer', '555-555-5552'),
+(3, NULL, 'christineb@solarone.com', 'Christine', 'Brown', '555-555-5553'),
+(4, NULL, 'david.goldstein@hotmail.com', 'David', 'Goldstein', '555-555-5554'),
+(5, 2, 'mark@pinkapartments.com', 'Mark', 'Davis', '555-555-5555'),
+(6, NULL, 'frankwilson@sbcglobal.net', 'Frank Lee', 'Wilson', '555-555-5556'),
+(7, NULL, 'gary_hernandez@yahoo.com', 'Gary', 'Hernandez', '555-555-5557'),
+(8, NULL, 'heatheresway@mac.com', 'Heather', 'Esway', '555-555-5558'),
+(9, 3, 'jerry@pinkapartments.com', 'Jerry', 'Davis', '555-555-5559'),
+(10, 4, 'julie@pinkapartments.com', 'Julie', 'Davis', '555-555-5510'),
+(11, NULL, 'cash.black@yahoo.com', 'Cash', 'Black', '555-111-5551'),
+(12, NULL, 'karina.ter@gmail.com', 'Karina', 'Terrell', '555-111-5552'),
+(13, NULL, 'jordin.parks@solarone.com', 'Jordin', 'Parks', '555-111-5553'),
+(14, NULL, 'kaylin.shea@hotmail.com', 'Kaylin', 'Shea', '555-111-5554'),
+(15, NULL, 'naima@gmail.com', 'Naima', 'Carlson', '555-111-5555'),
+(16, NULL, 'Skye.was@sbcglobal.net', 'Skye', 'Was', '555-111-5556'),
+(17, NULL, 'Rowan.camp@yahoo.com', 'Rowan', 'Campos', '555-111-5557'),
+(18, NULL, 'Davon.Right@mac.com', 'Davon', 'Right', '555-111-5558'),
+(19, NULL, 'scarlett.hoop@gmail.com', 'Scarlett', 'Hooper', '555-111-5559'),
+(20, NULL, 'Jasmine.chapm@darakjy.org', 'Jasmine', 'Chapman', '555-111-5510'),
+(21, NULL, 'kaylen@yahoo.com', 'Kaylen', 'Gibbs', '555-222-5551'),
+(22, NULL, 'yoselin.ter@gmail.com', 'Yoselin', 'Terrell', '555-222-5552'),
+(23, NULL, 'jack.parks@solarone.com', 'Jack', 'Parks', '555-222-5553'),
+(24, NULL, 'Messiah.shea@hotmail.com', 'Messiah', 'Shea', '555-222-5554'),
+(25, NULL, 'adeoan@gmail.com', 'Adeoan', 'Carlson', '555-222-5555'),
+(26, NULL, 'makaila@sbcglobal.net', 'Makaila', 'Was', '555-222-5556'),
+(27, NULL, 'alondra.camp@yahoo.com', 'Alondra', 'Campos', '555-222-5557'),
+(28, NULL, 'itskane@mac.com', 'Kane', 'Right', '555-222-5558'),
+(29, NULL, 'ignacio@gmail.com', 'Ignacio', 'Hooper', '555-222-5559'),
+(30, NULL, 'Aubrey.Henz@darakjy.org', 'Aubrey', 'Henz', '555-222-5510'),
+(31, NULL, 'frances.waller@yahoo.com', 'Frances', 'Waller', '555-333-5551'),
+(32, NULL, 'cara.yu@gmail.com', 'Cara', 'Yu', '555-333-5552'),
+(33, NULL, 'colby.gray@solarone.com', 'Colby', 'Gray', '555-333-5553'),
+(34, NULL, 'Hailie.Nichols@hotmail.com', 'Hailie', 'Nichols', '555-333-5554'),
+(35, NULL, 'leia.barr@gmail.com', 'Leia', 'Barr', '555-333-5555'),
+(36, NULL, 'brycen@sbcglobal.net', 'Brycen', 'Briggs', '555-333-5556'),
+(37, NULL, 'lill.fly@yahoo.com', 'Lilly', 'Flynn', '555-333-5557'),
+(38, NULL, 'nilo.byid@mac.com', 'Nilo', 'Byid', '555-333-5558'),
+(39, NULL, 'Nelson@gmail.com', 'Nelson', 'Bauer', '555-333-5559'),
+(40, NULL, 'Grayson.pena@darakjy.org', 'Grayson', 'Pena', '555-333-5510'),
+(41, NULL, 'levi.waller@yahoo.com', 'Levi', 'Waller', '555-444-5551'),
+(42, NULL, 'mathias.miles@gmail.com', 'Miles', 'Mathias', '555-444-5552'),
+(43, NULL, 'myleswalls@solarone.com', 'Myles', 'Walls', '555-444-5553'),
+(44, NULL, 'Breena.lut@hotmail.com', 'Breena', 'Lut', '555-444-5554'),
+(45, NULL, 'rachel.han@gmail.com', 'Rachel', 'Han', '555-444-5555'),
+(46, NULL, 'Cadon.meadows@sbcglobal.net', 'Cadon', 'Meadows', '555-444-5556'),
+(47, NULL, 'kameron.nu@yahoo.com', 'Cameron', 'Nu', '555-444-5557'),
+(48, NULL, 'arely.morgon@mac.com', 'Arely', 'Morgon', '555-444-5558'),
+(49, NULL, 'tamara.eidn@gmail.com', 'Tamara', 'Eid', '555-444-5559'),
+(50, NULL, 'Greyna@darakjy.org', 'Grayy', 'Na', '555-444-5510'),
+(51, NULL, 'karina.sull@yahoo.com', 'Karina', 'Sullivan', '555-777-5551'),
+(52, NULL, 'micah.little@gmail.com', 'Micah', 'Little', '555-777-5552'),
+(53, NULL, 'yaretiz@solarone.com', 'Yaretiz', 'Davis', '555-777-5553'),
+(54, NULL, 'jacobsss@hotmail.com', 'Jacobs', 'Hogan', '555-777-5554'),
+(55, NULL, 'shayna.gates@gmail.com', 'Shayna', 'Gates', '555-777-5555'),
+(56, NULL, 'Nick.tom@sbcglobal.net', 'Nick', 'Thompson', '555-777-5556'),
+(57, NULL, 'Devon.menden@yahoo.com', 'Devon', 'Menden', '555-777-5557'),
+(58, NULL, 'elianna@mac.com', 'Elianna', 'Davis', '555-777-5558'),
+(59, NULL, 'fitzclaud@gmail.com', 'Claudia', 'Fitzgerald', '555-777-5559'),
+(60, NULL, 'jaidyn.gaines@darakjy.org', 'Jaidyn', 'Gaines', '555-888-5510'),
+(61, NULL, 'quintin.leach@yahoo.com', 'Quintin', 'Leach', '555-888-5551'),
+(62, NULL, 'amir.lowery@gmail.com', 'Amir', 'Lowerry', '555-888-5552'),
+(63, NULL, 'harmonykarmony@solarone.com', 'Harmony', 'Glover', '555-888-5553'),
+(64, NULL, 'hillaryclon@hotmail.com', 'Hillary', 'Clon', '555-888-5554'),
+(65, NULL, 'hassan.baker@gmail.com', 'Hassan', 'Baker', '555-888-5555'),
+(66, NULL, 'elaina.ali@sbcglobal.net', 'Elaina', 'Ali', '555-888-5556'),
+(67, NULL, 'dwayne.simmons@yahoo.com', 'Dwayne', 'Simmons', '555-888-5557'),
+(68, NULL, 'jaslyn.pennington@mac.com', 'Jaslyn', 'Pennington', '555-888-5558'),
+(69, NULL, 'Will.moses@gmail.com', 'Will', 'Moses', '555-888-5559'),
+(70, NULL, 'Efrain.rod@darakjy.org', 'Efrain', 'Rodriguez', '555-999-5510');
+
+SET IDENTITY_INSERT Residents OFF;
+
+SET IDENTITY_INSERT Contracts ON;
+INSERT INTO Contracts(ContractID, ResidentID, ApartmentNum, Price, StartDate, EndDate, PetsAllowed, SmokingAllowed, Specials) VALUES
+(1, 1, 100, 1000.00, '2015-9-5', '2016-9-5', 1, 1, 'Free Xbox'),
+(2, 2, 101, 1000.00, '2015-9-5', '2016-9-5', 1, 1, 'Free Xbox'),
+(3, 3, 102, 1000.00, '2015-9-5', '2016-9-5', 1, 1, 'Free Xbox'),
+(4, 4, 103, 1000.00, '2015-9-5', '2016-9-5', 1, 1, 'Free Xbox'),
+(5, 5, 104, 1000.00, '2015-9-5', '2016-9-5', 1, 1, 'Free Xbox'),
+(6, 6, 105, 1000.00, '2015-9-5', '2016-9-5', 1, 1, 'Free Xbox'),
+(7, 7, 106, 1000.00, '2015-9-5', '2016-9-5', 1, 1, 'Free Xbox'),
+(8, 8, 107, 1000.00, '2015-9-5', '2016-9-5', 1, 1, 'Free Xbox'),
+(9, 9, 108, 1000.00, '2015-9-5', '2016-9-5', 1, 1, 'Free Xbox'),
+(10, 10, 109, 1100.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(11, 11, 110, 1100.00, '2018-9-5', '2019-9-5', 1, 1, 'free speaker'),
+(12, 12, 111, 1050.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(13, 13, 112, 1050.00, '2018-9-5', '2019-9-5', 1, 1, 'free speaker'),
+(14, 14, 113, 1020.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(15, 15, 114, 1500.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(16, 16, 115, 1400.00, '2018-9-5', '2019-9-5', 1, 1, 'free speaker'),
+(17, 17, 116, 1200.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(18, 18, 117, 1000.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(19, 19, 118, 1200.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(20, 20, 119, 1300.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(21, 21, 120, 1100.00, '2018-9-5', '2019-9-5', 0, 1, 'free speaker'),
+(22, 22, 121, 1050.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(23, 23, 122, 1050.00, '2018-9-5', '2019-9-5', 1, 0, '1mo rent free'),
+(24, 24, 123, 1020.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(25, 25, 124, 1500.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(26, 26, 125, 1400.00, '2018-9-5', '2019-9-5', 1, 0, 'free speaker'),
+(27, 27, 126, 1200.00, '2018-9-5', '2019-9-5', 1, 0, '1mo rent free'),
+(28, 28, 127, 1000.00, '2018-9-5', '2019-9-5', 0, 1, '1mo rent free'),
+(29, 29, 128, 1200.00, '2018-9-5', '2019-9-5', 1, 1, 'free speaker'),
+(30, 30, 129, 1300.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(31, 31, 130, 1100.00, '2018-9-5', '2019-9-5', 0, 1, '1mo rent free'),
+(32, 32, 131, 1050.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(33, 33, 132, 1050.00, '2018-01-11', '2019-01-11', 1, 0, 'free speaker'),
+(34, 34, 133, 1020.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(35, 35, 134, 1500.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(36, 36, 135, 1400.00, '2018-9-5', '2019-9-5', 1, 0, '1mo rent free'),
+(37, 37, 136, 1200.00, '2018-9-5', '2019-9-5', 1, 0, '1mo rent free'),
+(38, 38, 137, 1000.00, '2018-9-5', '2019-9-5', 0, 1, '1mo rent free'),
+(39, 39, 138, 1200.00, '2018-9-5', '2019-9-5', 1, 1, 'free phone'),
+(40, 40, 139, 1300.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(41, 41, 140, 1100.00, '2018-9-5', '2019-9-5', 0, 1, 'free speaker'),
+(42, 42, 141, 1050.00, '2018-07-15', '2019-07-15', 1, 1, '1mo rent free'),
+(43, 43, 142, 1050.00, '2018-9-5', '2019-9-5', 1, 0, '1mo rent free'),
+(44, 44, 143, 1020.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(45, 45, 144, 1500.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(46, 46, 145, 1400.00, '2018-9-5', '2019-9-5', 1, 0, 'free speaker'),
+(47, 47, 146, 1200.00, '2018-07-15', '2019-07-15', 1, 0, '1mo rent free'),
+(48, 48, 147, 1000.00, '2018-9-5', '2019-9-5', 0, 1, '1mo rent free'),
+(49, 49, 148, 1200.00, '2018-9-5', '2019-9-5', 1, 1, 'free speaker'),
+(50, 50, 149, 1300.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(51, 51, 150, 1100.00, '2018-9-5', '2019-9-5', 0, 1, '1mo rent free'),
+(52, 52, 151, 1050.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(53, 53, 152, 1050.00, '2018-9-5', '2019-9-5', 1, 0, 'free speaker'),
+(54, 54, 153, 1020.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(55, 55, 154, 1500.00, '2018-12-19', '2019-9-5', 1, 1, '1mo rent free'),
+(56, 56, 155, 1400.00, '2018-9-5', '2019-9-5', 1, 0, '1mo rent free'),
+(57, 57, 156, 1200.00, '2018-9-5', '2019-9-5', 1, 0, '1mo rent free'),
+(58, 58, 157, 1000.00, '2018-9-5', '2019-9-5', 0, 1, '1mo rent free'),
+(59, 59, 158, 1200.00, '2018-9-5', '2019-9-5', 1, 1, 'free phone'),
+(60, 60, 159, 1300.00, '2018-12-19', '2019-9-5', 1, 1, '1mo rent free'),
+(61, 61, 160, 1100.00, '2018-9-5', '2019-9-5', 0, 1, '1mo rent free'),
+(62, 62, 161, 1050.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(63, 63, 162, 1050.00, '2018-9-5', '2019-9-5', 1, 0, 'free speaker'),
+(64, 64, 163, 1020.00, '2018-9-5', '2019-9-5', 1, 1, '1mo rent free'),
+(65, 65, 164, 1500.00, '2018-12-19', '2019-9-5', 1, 1, '1mo rent free'),
+(66, 66, 165, 1400.00, '2018-9-5', '2019-9-5', 1, 0, '1mo rent free'),
+(67, 67, 166, 1200.00, '2018-9-5', '2019-9-5', 1, 0, '1mo rent free'),
+(68, 68, 167, 1000.00, '2018-9-5', '2019-9-5', 0, 1, '1mo rent free'),
+(69, 69, 168, 1200.00, '2018-9-5', '2019-9-5', 1, 1, 'free phone'),
+(70, 70, 169, 1300.00, '2018-12-19', '2019-9-5', 1, 1, '1mo rent free');
+SET IDENTITY_INSERT Contracts OFF;
+
+
+SET IDENTITY_INSERT EventsLog ON;
+INSERT INTO EventsLog(EventID, EmployeeID, ResidentID, EDate, ELocation, EDesc) VALUES
+(1, 1, 1, '2015-9-5', 'Theater', 'Watched a movie'),
+(2, 1, 1, '2015-10-5', 'Pool', 'Swimming Match'),
+(3, 1, 1, '2015-9-8', 'Pool', 'Swimming Match'),
+(4, 1, 1, '2015-9-12', 'Grill', 'BBQ'),
+(5, 1, 1, '2015-10-31', 'Pool', 'Swimming Match'),
+(6, 1, 1, '2016-9-10', 'Theater', 'Watched a movie'),
+(7, 1, 1, '2015-12-5', 'Lounge', 'Watched a movie'),
+(8, 1, 1, '2015-11-15', 'Bar', 'Drank'),
+(9, 1, 1, '2015-9-15', 'Tennis Courts', 'Played tennis'),
+(10, 1, 10, '2018-12-15', 'Bar', 'Drank'),
+(11, 1, 50, '2018-12-15', 'Pool', 'Swimming Match'),
+(12, 1, 33, '2018-12-05', 'Pool', 'Swimming Match'),
+(13, 1, 19, '2018-12-25', 'Pool', 'Swimming Match'),
+(14, 1, 42, '2018-12-15', 'Grill', 'BBQ'),
+(15, 1, 61, '2018-12-03', 'Pool', 'Swimming Match'),
+(16, 1, 51, '2018-12-18', 'Theater', 'Watched a movie'),
+(17, 1, 32, '2018-12-5', 'Lounge', 'Watched a movie'),
+(18, 1, 26, '2018-11-15', 'Bar', 'Drank'),
+(19, 1, 25, '2018-9-15', 'Tennis Courts', 'Played tennis'),
+(20, 1, 41, '2018-9-15', 'Bar', 'Drank'),
+(21, 1, 31, '2018-12-15', 'Pool', 'Swimming Match'),
+(22, 1, 20, '2018-12-15', 'Pool', 'Swimming Match'),
+(23, 1, 18, '2018-09-15', 'Pool', 'Swimming Match'),
+(24, 1, 22, '2018-12-15', 'Grill', 'BBQ'),
+(25, 1, 16, '2018-10-15', 'Pool', 'Swimming Match');
+
+SET IDENTITY_INSERT EventsLog OFF;
+
+
+INSERT INTO Pets (ResidentID, Species, Breed, RegistrationDate, PaymentDate) VALUES
+(1, 'Dog', 'German Shepherd', '2016-5-5', '2016-5-10'),
+(2, 'Cat', 'Calico', '2015-8-1', '2015-9-5'),
+(3, 'Dog', 'Tibby', '2016-1-5', '2016-1-30'),
+(4, 'Cat', 'Alley', '2017-3-3', '2017-4-20'),
+(5, 'Dog', 'Pug', '2016-10-10', '2016-11-12'),
+(10, 'Dog', 'German Shepherd', '2018-12-5', '2018-12-5'),
+(11, 'Cat', 'Calico', '2018-12-5', '2018-12-5'),
+(12, 'Dog', 'Tibby', '2018-12-5', '2018-12-5'),
+(20, 'Cat', 'Alley', '2018-12-5', '2018-12-5'),
+(21, 'Dog', 'Pug', '2018-12-5', '2018-12-5'),
+(22, 'Dog', 'German Shepherd', '2018-12-5', '2018-12-5'),
+(23, 'Cat', 'Calico', '2018-12-5', '2018-12-5'),
+(24, 'Dog', 'Tibby', '2018-12-5', '2018-12-5'),
+(25, 'Cat', 'Alley', '2018-12-5', '2018-12-5'),
+(26, 'Dog', 'Lab', '2018-12-5', '2018-12-5'),
+(27, 'Dog', 'German Shepherd', '2018-12-5', '2018-12-5'),
+(28, 'Cat', 'Calico', '2018-12-5', '2018-12-5'),
+(30, 'Dog', 'Lab', '2018-12-5', '2018-12-5');
+
+
+
+INSERT INTO ResidentVehicles (LicensePlate, ResidentID, Make, Model, Color, RegistrationDate, DecalSticker) VALUES 
+( 'abc-123', 1, 'Honda', 'Civic', 'Black', '2016-5-5', 'a0sijf'),
+( 'zbd-14d', 2, 'Ford', 'F-150', 'Grey', '2015-1-30', 'asoihf'),
+( 'bdb-322', 3, 'Tesla', 'Model 3', 'Red', '2018-5-3', 'memes'),
+( 'asd-fgh', 4, 'Nissan', 'GTR', 'Black', '2013-9-4', 'zxcvgr'),
+( 'jk55g', 5, 'Volkswagen', 'Beatle', 'Blue', '2018-2-3', 'qwertyu'),
+( 'hjjkhj', 6, 'Honda', 'Civic', 'Black', '2016-5-5', 'a5555f'),
+( 'z879yg', 7, 'Ford', 'F-150', 'Grey', '2015-1-30', 'a5752'),
+( 'sfge46', 8, 'Tesla', 'Model 3', 'Red', '2018-5-3', 'm5888es'),
+( '56urfjf', 10, 'Nissan', 'GTR', 'Black', '2013-9-4', 'z68885'),
+( 'jfgfdgss', 11, 'Volkswagen', 'Beatle', 'Blue', '2018-12-3', 'qiyui'),
+( 'ffgt3', 12, 'Honda', 'Civic', 'Black', '2018-12-3', 'a0y8888'),
+( 'fghrwqa', 12, 'Ford', 'F-150', 'Grey', '2018-12-3', 'asr4ess'),
+( 'bhytrrr', 13, 'Tesla', 'Model 3', 'Red', '2018-12-3', 'jyyr'),
+( '657rff', 14, 'Nissan', 'GTR', 'Black', '2018-12-3', 'z54445'),
+( 'jhfhee', 15, 'Volkswagen', 'Beatle', 'Blue', '2018-12-3', 'q00008'),
+( 'dfgrr', 16, 'Honda', 'Civic', 'Black', '2018-12-3', 'tysssd5'),
+( 'zbdfghd', 17, 'Ford', 'F-150', 'Grey', '2018-10-3', 'u7778'),
+( 'bmhhggg2', 18, 'Tesla', 'Model 3', 'Red', '2018-10-3', 'iu888'),
+( 'ghjjjb', 20, 'Nissan', 'GTR', 'Black', '2018-12-3', 'z74eer'),
+( 'j7766ghn', 20, 'Volkswagen', 'Beatle', 'Blue', '2018-12-3', 'qwiioo'),
+( 'anfd3', 20, 'Honda', 'Civic', 'Black', '2018-12-3', 'a0008f'),
+( 'kgjddd', 22, 'Ford', 'F-150', 'Grey', '2018-12-3', 'a77776'),
+( 'dt522', 23, 'Tesla', 'Model 3', 'Red', '2018-12-3', 'memof6'),
+( 'ashgjhj', 34, 'Nissan', 'GTR', 'Black', '2018-12-3', 'z434ff'),
+( 'jkghjjj', 35, 'Volkswagen', 'Beatle', 'Blue', '2018-12-3', 'cffgb');
+
+
+
+SET IDENTITY_INSERT Payments ON;
+
+INSERT INTO Payments(PaymentID, ResidentID, PaymentDate, RentAmount, CreditAmount, DueDate, CardType, CardNumber) VALUES
+(1, 10, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Visa', '4111111111111111'), 
+(2, 12, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'American Express', '3782822463100005'), 
+(3, 13, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Discover', '6011111111111117'), 
+(4, 14, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'MasterCard', '5555555555554444'), 
+(5, 15, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Visa', '101010101010'), 
+(6, 16, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'MasterCard', '999999999999'), 
+(7, 17, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Visa', '98989898989898'), 
+(8, 18, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Visa', '411111111678111'), 
+(9, 19, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Visa', '41111111133331111'), 
+(10, 20, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Visa', '4111111111112211'),
+(11, 21, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Visa', '411111189111111'), 
+(12, 22, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'American Express', '3782822463100005'), 
+(13, 33, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Discover', '60111111117'), 
+(14, 34, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'MasterCard', '5555554444'), 
+(15, 35, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Visa', '101010101010'), 
+(16, 36, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'MasterCard', '8899999999999'), 
+(17, 37, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Visa', '9898989778888'), 
+(18, 38, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Visa', '4111111111177111'), 
+(19, 39, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Visa', '4111111871111111'), 
+(20, 23, '2018-10-28 09:40:28.000', 1000.00, 0.0, '2018-10-29 09:40:28.000', 'Visa', '4111188111111111');
+
+SET IDENTITY_INSERT Payments OFF;
