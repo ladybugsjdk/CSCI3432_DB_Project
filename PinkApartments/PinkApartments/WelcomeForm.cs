@@ -14,15 +14,18 @@ namespace PinkApartments
 {
     public partial class WelcomeForm : Form
     {
-        static int index;
         public WelcomeForm()
         {
             InitializeComponent();
+            
+            
         }
 
         private void WelcomeForm_Load(object sender, EventArgs e)
         {
-
+            //this.Visible = false;
+            //SplashScreen sc = new SplashScreen();
+            //sc.Show();
         }
 
         private void searchBtn_Click(object sender, EventArgs e)
@@ -40,6 +43,30 @@ namespace PinkApartments
         {
             CreateContract cc = new CreateContract();
             cc.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ResidentForm rf = new ResidentForm();
+            rf.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            EmployeeForm ef = new EmployeeForm();
+            ef.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PetandVehicleForm pvf = new PetandVehicleForm();
+            pvf.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            EventsForm evf = new EventsForm();
+            evf.Show();
         }
     }
 }

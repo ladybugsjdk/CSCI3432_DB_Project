@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Jenna\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,14 +62,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PinkClasses\contractClass.cs" />
-    <Compile Include="PinkClasses\CreateContract.cs">
+    <Compile Include="EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PinkClasses\CreateContract.Designer.cs">
+    <Compile Include="EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventsForm.Designer.cs">
+      <DependentUpon>EventsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PetandVehicleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PetandVehicleForm.Designer.cs">
+      <DependentUpon>PetandVehicleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PinkClasses\contractClass.cs" />
+    <Compile Include="CreateContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateContract.Designer.cs">
       <DependentUpon>CreateContract.cs</DependentUpon>
     </Compile>
+    <Compile Include="PinkClasses\employeeClass.cs" />
+    <Compile Include="PinkClasses\eventClass.cs" />
+    <Compile Include="PinkClasses\petClass.cs" />
     <Compile Include="PinkClasses\pinkClass.cs" />
+    <Compile Include="PinkClasses\residentClass.cs" />
+    <Compile Include="PinkClasses\ResidentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PinkClasses\ResidentForm.Designer.cs">
+      <DependentUpon>ResidentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PinkClasses\searchClass.cs" />
     <Compile Include="PinkDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -67,6 +110,12 @@
     <Compile Include="SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,11 +124,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PinkClasses\CreateContract.resx">
+    <EmbeddedResource Include="CreateContract.resx">
       <DependentUpon>CreateContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventsForm.resx">
+      <DependentUpon>EventsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PetandVehicleForm.resx">
+      <DependentUpon>PetandVehicleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PinkClasses\ResidentForm.resx">
+      <DependentUpon>ResidentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
@@ -118,6 +182,18 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

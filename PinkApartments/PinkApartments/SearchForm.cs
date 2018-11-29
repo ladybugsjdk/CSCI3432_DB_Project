@@ -28,10 +28,28 @@ namespace PinkApartments
         private void button1_Click(object sender, EventArgs e)
         {
             //get value from textbox
-            s.search2 = advancedQ.Text;
-            s.sql = s.search2;
-            DataTable dt = s.Select();
-            dgvSearch.DataSource = dt;
+            if(advancedQ.Text.ToLower().IndexOf("delete") != -1)
+            {
+                MessageBox.Show("Can not perform this function.");
+            } else if(advancedQ.Text.ToLower().IndexOf("update") != -1)
+            {
+                MessageBox.Show("Can not perform this function.");
+            } else if(advancedQ.Text.ToLower().IndexOf("drop") != -1)
+            {
+                MessageBox.Show("Can not perform this function.");
+            }
+            else if (advancedQ.Text.ToLower().IndexOf("create") != -1)
+            {
+                MessageBox.Show("Can not perform this function.");
+            }
+            else
+            {
+                s.search2 = advancedQ.Text;
+                s.sql = s.search2;
+                DataTable dt = s.Select();
+                dgvSearch.DataSource = dt;
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

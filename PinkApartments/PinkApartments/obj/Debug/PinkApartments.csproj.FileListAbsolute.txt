@@ -10,3 +10,8 @@ C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\bin\Debug\PinkApartments.pd
 C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.exe
 C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.pdb
 C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.PinkClasses.CreateContract.resources
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.PinkClasses.ResidentForm.resources
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.EmployeeForm.resources
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.PetandVehicleForm.resources
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.EventsForm.resources
+C:\Users\Jenna\Desktop\PinkApartments\PinkApartments\obj\Debug\PinkApartments.SplashScreen.resources
