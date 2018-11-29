@@ -183,5 +183,25 @@ namespace PinkApartments
                 MessageBox.Show("An error occurred.");
             }
         }
+
+        private void clearPetBtn_Click(object sender, EventArgs e)
+        {
+            resid1Box.Text = "";
+            breedBox.Text = "";
+            speciesBox.Text = "";
+            regdateBox.Text = "";
+            paydateBox.Text = "";
+        }
+
+        private void clearVehBtn_Click(object sender, EventArgs e)
+        {
+            resid2Box.Text = "";
+            lienseBox.Text = "";
+            makeBox.Text = "";
+            modelBox.Text = "";
+            regivehicleBox.Text = "";
+            decalBox.Text = "";
+            colorBox.Text = "";
+        }
     }
 }

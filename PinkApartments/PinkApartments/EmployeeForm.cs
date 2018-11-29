@@ -88,5 +88,16 @@ namespace PinkApartments
                 MessageBox.Show("An error occurred.");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            empidBox.Text = "";
+            fnameBox.Text = "";
+            lnameBox.Text = "";
+            salaryBox.Text = "";
+            jobBox.Text = "";
+            emailBox.Text = "";
+            hiredateBox.Text = "";
+        }
     }
 }

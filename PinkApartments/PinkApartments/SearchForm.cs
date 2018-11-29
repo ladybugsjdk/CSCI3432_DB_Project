@@ -55,7 +55,6 @@ namespace PinkApartments
         private void button2_Click(object sender, EventArgs e)
         {
             s.combo = comboBox1.Text;
-            MessageBox.Show(s.combo);
             s.sql = "SELECT * FROM " + s.combo + ";";
             DataTable dt = s.Select();
             dgvSearch.DataSource = dt;

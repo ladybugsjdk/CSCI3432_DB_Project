@@ -163,7 +163,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(213, 703);
             this.button1.Name = "button1";
@@ -282,7 +282,7 @@
             // 
             // addResidentBtn
             // 
-            this.addResidentBtn.BackColor = System.Drawing.Color.LightSlateGray;
+            this.addResidentBtn.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.addResidentBtn.Location = new System.Drawing.Point(381, 174);
             this.addResidentBtn.Name = "addResidentBtn";
             this.addResidentBtn.Size = new System.Drawing.Size(97, 51);
@@ -397,6 +397,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(653, 779);
             this.Controls.Add(this.endBox);
             this.Controls.Add(this.label4);
@@ -435,6 +436,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateContract";
             this.Text = "CreateContract";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

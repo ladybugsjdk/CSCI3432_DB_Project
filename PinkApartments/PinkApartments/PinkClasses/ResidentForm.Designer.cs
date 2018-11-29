@@ -46,6 +46,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.empidBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.clearBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResident)).BeginInit();
             this.SuspendLayout();
@@ -159,6 +160,7 @@
             // 
             // dgvResident
             // 
+            this.dgvResident.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvResident.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResident.Location = new System.Drawing.Point(355, 110);
             this.dgvResident.Name = "dgvResident";
@@ -169,22 +171,24 @@
             // 
             // addResBtn
             // 
+            this.addResBtn.BackColor = System.Drawing.Color.DarkSalmon;
             this.addResBtn.Location = new System.Drawing.Point(77, 446);
             this.addResBtn.Name = "addResBtn";
             this.addResBtn.Size = new System.Drawing.Size(141, 58);
             this.addResBtn.TabIndex = 13;
             this.addResBtn.Text = "Add Resident";
-            this.addResBtn.UseVisualStyleBackColor = true;
+            this.addResBtn.UseVisualStyleBackColor = false;
             this.addResBtn.Click += new System.EventHandler(this.addResBtn_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.DarkSalmon;
             this.button2.Location = new System.Drawing.Point(280, 446);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(141, 58);
             this.button2.TabIndex = 14;
             this.button2.Text = "Update Resident";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // empidBox
@@ -204,11 +208,25 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Employee ID";
             // 
+            // clearBtn
+            // 
+            this.clearBtn.BackColor = System.Drawing.Color.DarkSalmon;
+            this.clearBtn.Location = new System.Drawing.Point(495, 446);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(141, 56);
+            this.clearBtn.TabIndex = 17;
+            this.clearBtn.Text = "Clear Form";
+            this.clearBtn.UseVisualStyleBackColor = false;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
+            // 
             // ResidentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(900, 526);
+            this.Controls.Add(this.clearBtn);
             this.Controls.Add(this.empidBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
@@ -226,7 +244,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ResidentForm";
             this.Text = "ResidentForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -255,5 +275,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox empidBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button clearBtn;
     }
 }

@@ -91,5 +91,15 @@ namespace PinkApartments
         {
             this.Close();
         }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            locationBox.Text = "";
+            dateBox.Text = "";
+            eventIDBox.Text = "";
+            empIDBox.Text = "";
+            resIDBox.Text = "";
+            descBox.Text = "";
+        }
     }
 }

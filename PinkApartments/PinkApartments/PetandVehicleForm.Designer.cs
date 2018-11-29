@@ -67,6 +67,8 @@
             this.showDGV = new System.Windows.Forms.Button();
             this.colorBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.clearPetBtn = new System.Windows.Forms.Button();
+            this.clearVehBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPetVeh)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +77,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(334, 9);
+            this.label1.Location = new System.Drawing.Point(265, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(246, 25);
             this.label1.TabIndex = 0;
@@ -84,7 +86,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(900, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(771, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(48, 44);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -104,32 +106,33 @@
             // 
             // selectViewBox
             // 
+            this.selectViewBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectViewBox.FormattingEnabled = true;
             this.selectViewBox.Items.AddRange(new object[] {
             "Pets",
             "ResidentVehicles"});
             this.selectViewBox.Location = new System.Drawing.Point(270, 62);
             this.selectViewBox.Name = "selectViewBox";
-            this.selectViewBox.Size = new System.Drawing.Size(182, 24);
+            this.selectViewBox.Size = new System.Drawing.Size(200, 28);
             this.selectViewBox.TabIndex = 3;
             // 
             // dgvPetVeh
             // 
             this.dgvPetVeh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPetVeh.Location = new System.Drawing.Point(148, 111);
+            this.dgvPetVeh.Location = new System.Drawing.Point(73, 111);
             this.dgvPetVeh.Name = "dgvPetVeh";
             this.dgvPetVeh.RowTemplate.Height = 24;
-            this.dgvPetVeh.Size = new System.Drawing.Size(620, 202);
+            this.dgvPetVeh.Size = new System.Drawing.Size(638, 202);
             this.dgvPetVeh.TabIndex = 4;
             this.dgvPetVeh.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPetVeh_RowHeaderMouseClick);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 306);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(20, 316);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 25);
+            this.label3.Size = new System.Drawing.Size(61, 29);
             this.label3.TabIndex = 5;
             this.label3.Text = "Pets";
             // 
@@ -137,7 +140,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 345);
+            this.label4.Location = new System.Drawing.Point(69, 354);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 20);
             this.label4.TabIndex = 6;
@@ -147,7 +150,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(31, 382);
+            this.label5.Location = new System.Drawing.Point(105, 387);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 20);
             this.label5.TabIndex = 7;
@@ -157,7 +160,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(324, 341);
+            this.label6.Location = new System.Drawing.Point(90, 421);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 20);
             this.label6.TabIndex = 8;
@@ -167,7 +170,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(279, 382);
+            this.label7.Location = new System.Drawing.Point(21, 454);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(140, 20);
             this.label7.TabIndex = 9;
@@ -177,7 +180,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(629, 343);
+            this.label8.Location = new System.Drawing.Point(44, 487);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(115, 20);
             this.label8.TabIndex = 10;
@@ -185,139 +188,161 @@
             // 
             // resid1Box
             // 
-            this.resid1Box.Location = new System.Drawing.Point(120, 343);
+            this.resid1Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resid1Box.Location = new System.Drawing.Point(182, 351);
             this.resid1Box.Name = "resid1Box";
-            this.resid1Box.Size = new System.Drawing.Size(116, 22);
+            this.resid1Box.Size = new System.Drawing.Size(116, 27);
             this.resid1Box.TabIndex = 11;
             // 
             // breedBox
             // 
-            this.breedBox.Location = new System.Drawing.Point(109, 382);
+            this.breedBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.breedBox.Location = new System.Drawing.Point(182, 384);
             this.breedBox.Name = "breedBox";
-            this.breedBox.Size = new System.Drawing.Size(164, 22);
+            this.breedBox.Size = new System.Drawing.Size(164, 27);
             this.breedBox.TabIndex = 12;
             // 
             // speciesBox
             // 
-            this.speciesBox.Location = new System.Drawing.Point(425, 341);
+            this.speciesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.speciesBox.Location = new System.Drawing.Point(182, 418);
             this.speciesBox.Name = "speciesBox";
-            this.speciesBox.Size = new System.Drawing.Size(155, 22);
+            this.speciesBox.Size = new System.Drawing.Size(164, 27);
             this.speciesBox.TabIndex = 13;
             // 
             // regdateBox
             // 
-            this.regdateBox.Location = new System.Drawing.Point(425, 382);
+            this.regdateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regdateBox.Location = new System.Drawing.Point(182, 451);
             this.regdateBox.Name = "regdateBox";
-            this.regdateBox.Size = new System.Drawing.Size(159, 22);
+            this.regdateBox.Size = new System.Drawing.Size(164, 27);
             this.regdateBox.TabIndex = 14;
             // 
             // paydateBox
             // 
-            this.paydateBox.Location = new System.Drawing.Point(750, 343);
+            this.paydateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paydateBox.Location = new System.Drawing.Point(182, 484);
             this.paydateBox.Name = "paydateBox";
-            this.paydateBox.Size = new System.Drawing.Size(155, 22);
+            this.paydateBox.Size = new System.Drawing.Size(164, 27);
             this.paydateBox.TabIndex = 15;
             // 
             // addPetBtn
             // 
-            this.addPetBtn.Location = new System.Drawing.Point(120, 425);
+            this.addPetBtn.BackColor = System.Drawing.Color.LightCoral;
+            this.addPetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPetBtn.Location = new System.Drawing.Point(37, 532);
             this.addPetBtn.Name = "addPetBtn";
             this.addPetBtn.Size = new System.Drawing.Size(142, 44);
             this.addPetBtn.TabIndex = 16;
-            this.addPetBtn.Text = "Add";
-            this.addPetBtn.UseVisualStyleBackColor = true;
+            this.addPetBtn.Text = "Add Pet";
+            this.addPetBtn.UseVisualStyleBackColor = false;
             this.addPetBtn.Click += new System.EventHandler(this.addPetBtn_Click);
             // 
             // updatePetBtn
             // 
-            this.updatePetBtn.Location = new System.Drawing.Point(339, 425);
+            this.updatePetBtn.BackColor = System.Drawing.Color.LightCoral;
+            this.updatePetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updatePetBtn.Location = new System.Drawing.Point(204, 532);
             this.updatePetBtn.Name = "updatePetBtn";
             this.updatePetBtn.Size = new System.Drawing.Size(142, 44);
             this.updatePetBtn.TabIndex = 17;
-            this.updatePetBtn.Text = "Update";
-            this.updatePetBtn.UseVisualStyleBackColor = true;
+            this.updatePetBtn.Text = "Update Pet";
+            this.updatePetBtn.UseVisualStyleBackColor = false;
             this.updatePetBtn.Click += new System.EventHandler(this.updatePetBtn_Click);
             // 
             // deletePetBtn
             // 
-            this.deletePetBtn.Location = new System.Drawing.Point(555, 425);
+            this.deletePetBtn.BackColor = System.Drawing.Color.LightCoral;
+            this.deletePetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletePetBtn.Location = new System.Drawing.Point(37, 595);
             this.deletePetBtn.Name = "deletePetBtn";
             this.deletePetBtn.Size = new System.Drawing.Size(142, 44);
             this.deletePetBtn.TabIndex = 18;
-            this.deletePetBtn.Text = "Delete";
-            this.deletePetBtn.UseVisualStyleBackColor = true;
+            this.deletePetBtn.Text = "Delete Pet";
+            this.deletePetBtn.UseVisualStyleBackColor = false;
             this.deletePetBtn.Click += new System.EventHandler(this.deletePetBtn_Click);
             // 
             // delVehBtn
             // 
-            this.delVehBtn.Location = new System.Drawing.Point(544, 575);
+            this.delVehBtn.BackColor = System.Drawing.Color.LightCoral;
+            this.delVehBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delVehBtn.Location = new System.Drawing.Point(440, 717);
             this.delVehBtn.Name = "delVehBtn";
             this.delVehBtn.Size = new System.Drawing.Size(142, 44);
             this.delVehBtn.TabIndex = 32;
-            this.delVehBtn.Text = "Delete";
-            this.delVehBtn.UseVisualStyleBackColor = true;
+            this.delVehBtn.Text = "Delete Vehicle";
+            this.delVehBtn.UseVisualStyleBackColor = false;
             this.delVehBtn.Click += new System.EventHandler(this.delVehBtn_Click);
             // 
             // updateVehBtn
             // 
-            this.updateVehBtn.Location = new System.Drawing.Point(328, 575);
+            this.updateVehBtn.BackColor = System.Drawing.Color.LightCoral;
+            this.updateVehBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateVehBtn.Location = new System.Drawing.Point(619, 650);
             this.updateVehBtn.Name = "updateVehBtn";
             this.updateVehBtn.Size = new System.Drawing.Size(142, 44);
             this.updateVehBtn.TabIndex = 31;
-            this.updateVehBtn.Text = "Update";
-            this.updateVehBtn.UseVisualStyleBackColor = true;
+            this.updateVehBtn.Text = "Update Vehicle";
+            this.updateVehBtn.UseVisualStyleBackColor = false;
             this.updateVehBtn.Click += new System.EventHandler(this.updateVehBtn_Click);
             // 
             // addVehBtn
             // 
-            this.addVehBtn.Location = new System.Drawing.Point(94, 575);
+            this.addVehBtn.BackColor = System.Drawing.Color.LightCoral;
+            this.addVehBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addVehBtn.Location = new System.Drawing.Point(440, 650);
             this.addVehBtn.Name = "addVehBtn";
             this.addVehBtn.Size = new System.Drawing.Size(142, 44);
             this.addVehBtn.TabIndex = 30;
-            this.addVehBtn.Text = "Add";
-            this.addVehBtn.UseVisualStyleBackColor = true;
+            this.addVehBtn.Text = "Add Vehicle";
+            this.addVehBtn.UseVisualStyleBackColor = false;
             this.addVehBtn.Click += new System.EventHandler(this.addVehBtn_Click);
             // 
             // regivehicleBox
             // 
-            this.regivehicleBox.Location = new System.Drawing.Point(750, 495);
+            this.regivehicleBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regivehicleBox.Location = new System.Drawing.Point(567, 531);
             this.regivehicleBox.Name = "regivehicleBox";
-            this.regivehicleBox.Size = new System.Drawing.Size(155, 22);
+            this.regivehicleBox.Size = new System.Drawing.Size(164, 27);
             this.regivehicleBox.TabIndex = 29;
             // 
             // modelBox
             // 
-            this.modelBox.Location = new System.Drawing.Point(403, 532);
+            this.modelBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modelBox.Location = new System.Drawing.Point(567, 496);
             this.modelBox.Name = "modelBox";
-            this.modelBox.Size = new System.Drawing.Size(159, 22);
+            this.modelBox.Size = new System.Drawing.Size(164, 27);
             this.modelBox.TabIndex = 28;
             // 
             // makeBox
             // 
-            this.makeBox.Location = new System.Drawing.Point(403, 495);
+            this.makeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.makeBox.Location = new System.Drawing.Point(567, 451);
             this.makeBox.Name = "makeBox";
-            this.makeBox.Size = new System.Drawing.Size(155, 22);
+            this.makeBox.Size = new System.Drawing.Size(164, 27);
             this.makeBox.TabIndex = 27;
             // 
             // lienseBox
             // 
-            this.lienseBox.Location = new System.Drawing.Point(148, 532);
+            this.lienseBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lienseBox.Location = new System.Drawing.Point(567, 406);
             this.lienseBox.Name = "lienseBox";
-            this.lienseBox.Size = new System.Drawing.Size(164, 22);
+            this.lienseBox.Size = new System.Drawing.Size(164, 27);
             this.lienseBox.TabIndex = 26;
             // 
             // resid2Box
             // 
-            this.resid2Box.Location = new System.Drawing.Point(148, 493);
+            this.resid2Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resid2Box.Location = new System.Drawing.Point(567, 366);
             this.resid2Box.Name = "resid2Box";
-            this.resid2Box.Size = new System.Drawing.Size(116, 22);
+            this.resid2Box.Size = new System.Drawing.Size(116, 27);
             this.resid2Box.TabIndex = 25;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(589, 495);
+            this.label9.Location = new System.Drawing.Point(406, 531);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(140, 20);
             this.label9.TabIndex = 24;
@@ -327,7 +352,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(330, 534);
+            this.label10.Location = new System.Drawing.Point(492, 493);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(54, 20);
             this.label10.TabIndex = 23;
@@ -337,7 +362,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(335, 493);
+            this.label11.Location = new System.Drawing.Point(497, 448);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 20);
             this.label11.TabIndex = 22;
@@ -347,7 +372,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(31, 532);
+            this.label12.Location = new System.Drawing.Point(435, 406);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(111, 20);
             this.label12.TabIndex = 21;
@@ -357,7 +382,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(31, 497);
+            this.label13.Location = new System.Drawing.Point(454, 366);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(92, 20);
             this.label13.TabIndex = 20;
@@ -366,25 +391,26 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(21, 456);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(420, 323);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(87, 25);
+            this.label14.Size = new System.Drawing.Size(105, 29);
             this.label14.TabIndex = 19;
             this.label14.Text = "Vehicles";
             // 
             // decalBox
             // 
-            this.decalBox.Location = new System.Drawing.Point(750, 532);
+            this.decalBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decalBox.Location = new System.Drawing.Point(567, 568);
             this.decalBox.Name = "decalBox";
-            this.decalBox.Size = new System.Drawing.Size(155, 22);
+            this.decalBox.Size = new System.Drawing.Size(164, 27);
             this.decalBox.TabIndex = 34;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(619, 532);
+            this.label15.Location = new System.Drawing.Point(436, 568);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(110, 20);
             this.label15.TabIndex = 33;
@@ -392,36 +418,66 @@
             // 
             // showDGV
             // 
+            this.showDGV.BackColor = System.Drawing.Color.LightCoral;
+            this.showDGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showDGV.Location = new System.Drawing.Point(477, 51);
             this.showDGV.Name = "showDGV";
             this.showDGV.Size = new System.Drawing.Size(142, 44);
             this.showDGV.TabIndex = 35;
             this.showDGV.Text = "Show";
-            this.showDGV.UseVisualStyleBackColor = true;
+            this.showDGV.UseVisualStyleBackColor = false;
             this.showDGV.Click += new System.EventHandler(this.showDGV_Click);
             // 
             // colorBox
             // 
-            this.colorBox.Location = new System.Drawing.Point(1027, 493);
+            this.colorBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colorBox.Location = new System.Drawing.Point(567, 607);
             this.colorBox.Name = "colorBox";
-            this.colorBox.Size = new System.Drawing.Size(155, 22);
+            this.colorBox.Size = new System.Drawing.Size(164, 27);
             this.colorBox.TabIndex = 37;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(954, 497);
+            this.label16.Location = new System.Drawing.Point(497, 607);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(49, 20);
             this.label16.TabIndex = 36;
             this.label16.Text = "Color";
             // 
+            // clearPetBtn
+            // 
+            this.clearPetBtn.BackColor = System.Drawing.Color.LightCoral;
+            this.clearPetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearPetBtn.Location = new System.Drawing.Point(204, 595);
+            this.clearPetBtn.Name = "clearPetBtn";
+            this.clearPetBtn.Size = new System.Drawing.Size(142, 44);
+            this.clearPetBtn.TabIndex = 38;
+            this.clearPetBtn.Text = "Clear Form";
+            this.clearPetBtn.UseVisualStyleBackColor = false;
+            this.clearPetBtn.Click += new System.EventHandler(this.clearPetBtn_Click);
+            // 
+            // clearVehBtn
+            // 
+            this.clearVehBtn.BackColor = System.Drawing.Color.LightCoral;
+            this.clearVehBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearVehBtn.Location = new System.Drawing.Point(619, 717);
+            this.clearVehBtn.Name = "clearVehBtn";
+            this.clearVehBtn.Size = new System.Drawing.Size(142, 44);
+            this.clearVehBtn.TabIndex = 39;
+            this.clearVehBtn.Text = "Clear Form";
+            this.clearVehBtn.UseVisualStyleBackColor = false;
+            this.clearVehBtn.Click += new System.EventHandler(this.clearVehBtn_Click);
+            // 
             // PetandVehicleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1194, 634);
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.ClientSize = new System.Drawing.Size(823, 786);
+            this.Controls.Add(this.clearVehBtn);
+            this.Controls.Add(this.clearPetBtn);
             this.Controls.Add(this.colorBox);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.showDGV);
@@ -461,6 +517,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PetandVehicleForm";
             this.Text = "PetandVehicleForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -510,5 +567,7 @@
         private System.Windows.Forms.Button showDGV;
         private System.Windows.Forms.TextBox colorBox;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button clearPetBtn;
+        private System.Windows.Forms.Button clearVehBtn;
     }
 }

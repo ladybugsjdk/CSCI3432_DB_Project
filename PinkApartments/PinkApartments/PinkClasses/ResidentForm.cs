@@ -132,5 +132,15 @@ namespace PinkApartments.PinkClasses
             }
             
         }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            residBox.Text = "";
+            fnameBox.Text = "";
+            lnameBox.Text = "";
+            empidBox.Text = "";
+            emailBox.Text = "";
+            phoneBox.Text = "";
+        }
     }
 }
